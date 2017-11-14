@@ -10,4 +10,9 @@ module.exports = {
       throw e
     }
   },
+  NewMessage: events['message/new'],
+  UserFollow: events['user/follow'],
+  MessageUpdate: events['message/update'],
+  UserUnfollow: events['user/unfollow'],
+  ChatNew: events['chat/new']
 }
