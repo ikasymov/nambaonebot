@@ -1,0 +1,15 @@
+{
+  "name": "nambaonebot",
+  "version": "1.0.0",
+  "description": "Basic commands and methods with nambaone api for bots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ikasymov",
+  "license": "ISC",
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/ikasymov/nambaonebot.git"
+  }
+}
