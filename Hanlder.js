@@ -1,6 +1,7 @@
 let request = require('request');
 
 function Handler(req, config){
+  this.req = req;
   this.data = req.body;
   this.event = this.data.event;
   if(!config.nambaOne || !config.token){
@@ -28,8 +29,10 @@ Handler.prototype.sendMessage = async(message)=>{
   return new Promise((resolve, reject)=>{
     request(data, (error, req, body)=>{
       if(error){
+        this.req.end();
         reject(error)
       }
+      this.req.end();
       resolve(body)
     })
   })
@@ -42,7 +45,7 @@ Handler.prototype.start = async()=>{
 
 
 
-function NewMessage(req){
+function NewMessage(req, config){
   Handler.apply(this, arguments);
   this.content = this.data.content;
   this.sender_id = this.data.sender_id;
@@ -53,7 +56,7 @@ NewMessage.prototype.constructor = NewMessage;
 
 
 
-function UserFollow(req){
+function UserFollow(req, config){
   Handler.apply(this, arguments);
   this.sender_id = this.data.id
 }
@@ -66,14 +69,14 @@ UserFollow.prototype.start = async ()=>{
 
 
 
-function MessageUpdate(req){
+function MessageUpdate(req, config){
   Handler.apply(this, arguments);
 }
 MessageUpdate.prototype = Object.create(Handler.prototype);
 MessageUpdate.prototype.constructor = MessageUpdate;
 
 
-function UserUnfollow(req){
+function UserUnfollow(req, config){
   Handler.apply(this, arguments);
   this.sender_id = this.data.id
 }
@@ -81,7 +84,7 @@ UserUnfollow.prototype = Object.create(Handler.prototype);
 UserUnfollow.prototype.constructor = UserUnfollow;
 
 
-function ChatNew(req){
+function ChatNew(req, config){
   Handler.apply(this, arguments);
 }
 ChatNew.prototype = Object.create(Handler.prototype);
