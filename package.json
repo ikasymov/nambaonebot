@@ -1,6 +1,6 @@
 {
   "name": "nambaonebot",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Basic commands and methods with nambaone api for bots",
   "main": "index.js",
   "scripts": {
