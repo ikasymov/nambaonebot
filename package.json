@@ -1,6 +1,6 @@
 {
   "name": "nambaonebot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Basic commands and methods with nambaone api for bots",
   "main": "index.js",
   "scripts": {
@@ -8,8 +8,8 @@
   },
   "author": "ikasymov",
   "license": "ISC",
-  "repository" :
-  { "type" : "git"
-  , "url" : "https://github.com/ikasymov/nambaonebot.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ikasymov/nambaonebot.git"
   }
 }
