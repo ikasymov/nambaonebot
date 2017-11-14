@@ -1,9 +1,9 @@
 let events = require('./Hanlder');
 
 module.exports = {
-  start: async (req)=>{
+  start: async (req, config)=>{
     try{
-      let eventsObject = new events[req.body.event](req);
+      let eventsObject = new events[req.body.event](req, config);
       return await eventsObject.start();
     }catch(e){
       console.log(e);
