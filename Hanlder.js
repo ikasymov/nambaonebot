@@ -10,7 +10,7 @@ function Handler(req, config){
   this.config = config
 }
 
-Handler.prototype.sendMessage = async(message)=>{
+Handler.prototype.sendMessage = async function(message){
   if(!this.chat_id){
     throw new Error('not found chat id for send message')
   }
@@ -38,7 +38,7 @@ Handler.prototype.sendMessage = async(message)=>{
   })
 };
 
-Handler.prototype.start = async()=>{
+Handler.prototype.start = async function(){
   console.log("call " + this.event + ' event')
   return;
 }
@@ -63,7 +63,7 @@ function UserFollow(req, config){
 UserFollow.prototype = Object.create(Handler.prototype);
 UserFollow.prototype.constructor = UserFollow;
 
-UserFollow.prototype.start = async ()=>{
+UserFollow.prototype.start = async function(){
   return this.sendMessage('Hello, this ' + this.config.bot_name + 'bot')
 };
 
